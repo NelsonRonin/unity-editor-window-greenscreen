@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5d06239c2a942844497cfd33147b0485
+timeCreated: 1526142654
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_PersistentViewDataDictionary: {instanceID: 0}
+  - chromaKeyMaterial: {fileID: 2100000, guid: 6bb0df8e31929f648b9584e41f68f845, type: 2}
+  executionOrder: 100
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
