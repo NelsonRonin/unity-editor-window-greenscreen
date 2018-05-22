@@ -20,6 +20,7 @@ public class GreenscreenEditorWindow : EditorWindow
     // Chroma Key Color (color replaced with background)
     private Color chromaKeyColor = Color.green;
     private float chromaKeyTolerance = 0.4f;
+    private float lightnessTolerance = 0.02f;
 
     // Add menu item
     [MenuItem("Mixed Reality Framework / Camera View")]
@@ -52,11 +53,15 @@ public class GreenscreenEditorWindow : EditorWindow
             GUILayout.Label("Chroma Key Tolerance (tolerated rgb difference to given color)");
             chromaKeyTolerance = EditorGUILayout.Slider(chromaKeyTolerance, 0.0f, 1.0f);
 
+            // Tolerance Lightness
+            GUILayout.Label("Lightness Tolerance (tolerated lightness difference to given color)");
+            lightnessTolerance = EditorGUILayout.Slider(lightnessTolerance, 0.0f, 1.0f);
+            
             // Camera view
             if (cameraTexture != null)
                 EditorGUI.DrawPreviewTexture(
                     // Position and size
-                    new Rect(20, 150, position.width - 40, position.height - 200),
+                    new Rect(20, 200, position.width - 40, position.height - 200),
                     // Video Texture
                     cameraTexture, 
                     // Matrerial with chroma key shader
@@ -74,6 +79,7 @@ public class GreenscreenEditorWindow : EditorWindow
         if (cameraTexture != null && cameraTexture.isPlaying && chromaKeyMaterial != null) {
             chromaKeyMaterial.SetColor("_mainColor", chromaKeyColor);
             chromaKeyMaterial.SetFloat("_tolerance", chromaKeyTolerance);
+            chromaKeyMaterial.SetFloat("_lightness", lightnessTolerance);
         }
 
         // Make sure the camera view is always shown and updated
