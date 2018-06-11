@@ -19,8 +19,8 @@ public class GreenscreenEditorWindow : EditorWindow
 
     // Chroma Key Color (color replaced with background)
     private Color chromaKeyColor = Color.green;
-    private float chromaKeyTolerance = 0.4f;
-    private float lightnessTolerance = 0.02f;
+    private float chromaKeyTolerance = 20.0f;
+    private float lightnessTolerance = 0.15f;
 
     // Add menu item
     [MenuItem("Mixed Reality Framework / Camera View")]
@@ -51,7 +51,7 @@ public class GreenscreenEditorWindow : EditorWindow
 
             // Tolerance Slider
             GUILayout.Label("Chroma Key Tolerance (tolerated rgb difference to given color)");
-            chromaKeyTolerance = EditorGUILayout.Slider(chromaKeyTolerance, 0.0f, 1.0f);
+            chromaKeyTolerance = EditorGUILayout.Slider(chromaKeyTolerance, 0.0f, 360.0f);
 
             // Tolerance Lightness
             GUILayout.Label("Lightness Tolerance (tolerated lightness difference to given color)");
